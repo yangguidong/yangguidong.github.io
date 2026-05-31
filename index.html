@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" id="navLogo">PORTFOLIO</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">首页</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#works">作品</a></li>
+      </ul>
+      <button class="theme-btn" id="themeBtn" title="切换深色/浅色模式">🌓</button>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- 首页 -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-bg-shape"></div>
+      <div class="hero-bg-shape"></div>
+      <div class="hero-bg-shape"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greet" id="heroGreet">Hello, 我是</p>
+      <h1 class="hero-name" id="heroName">张三</h1>
+      <p class="hero-tagline" id="heroTagline">视觉设计师 / 插画师</p>
+      <div class="hero-btns">
+        <a href="#works" class="btn btn-a">查看作品</a>
+        <a href="#about" class="btn btn-b">关于我</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><span></span></div>
+  </section>
+
+  <!-- 关于我 -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title" data-reveal>关于我</h2>
+      <div class="about-grid" data-reveal>
+        <div class="about-avatar-wrap"><img class="about-avatar" id="aboutAvatar" src="" alt="头像"></div>
+        <div class="about-text">
+          <h3 id="aboutName">张三</h3>
+          <p class="tagline" id="aboutTagline">视觉设计师 / 插画师</p>
+          <div class="bio" id="aboutBio"></div>
+        </div>
+        <div class="about-philosophy" id="aboutPhilosophy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品展示 -->
+  <section class="section" id="works">
+    <div class="container">
+      <h2 class="section-title" data-reveal>作品展示</h2>
+      <div class="filter-bar" id="filterBar" data-reveal></div>
+      <div class="works-grid" id="worksGrid"></div>
+    </div>
+  </section>
+
+  <!-- 作品详情弹窗 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <canvas id="particles"></canvas>
+  <script src="js/app.js"></script>
+  <script>
+    // ===== 粒子动效（增强版） =====
+    const pCanvas = document.getElementById('particles'), pCtx = pCanvas.getContext('2d');
+    let pArr = [], pMouse = { x: -2000, y: -2000 }, pFinger = null;
+    function pResize() { pCanvas.width = window.innerWidth; pCanvas.height = window.innerHeight; }
+    pResize(); window.addEventListener('resize', pResize);
+    const PARTICLE_COUNT = 120;
+    const colors = ['#d4a853','#f0d78c','#8bcfc0','#c47eb6','#e8a87c','#7eb8da'];
+    for (let i = 0; i < PARTICLE_COUNT; i++) pArr.push({ x: Math.random()*pCanvas.width, y: Math.random()*pCanvas.height, vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4, r: Math.random()*2+.4, o: Math.random()*.5+.15, c: colors[Math.floor(Math.random()*colors.length)] });
+    document.addEventListener('mousemove', e => { pMouse.x = e.clientX; pMouse.y = e.clientY; });
+    document.addEventListener('touchmove', e => { if (e.touches.length) { pFinger = { x: e.touches[0].clientX, y: e.touches[0].clientY }; pMouse.x = e.touches[0].clientX; pMouse.y = e.touches[0].clientY; } }, {passive:true});
+    document.addEventListener('touchend', () => { pFinger = null; });
+    function pDraw() {
+      pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+      const target = pFinger || pMouse;
+      pArr.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = pCanvas.width; if (p.x > pCanvas.width) p.x = 0;
+        if (p.y < 0) p.y = pCanvas.height; if (p.y > pCanvas.height) p.y = 0;
+        // 绘制粒子（带发光）
+        const glow = pCtx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
+        glow.addColorStop(0, p.c.replace(')',',.6)').replace('rgb','rgba'));
+        glow.addColorStop(1, 'transparent');
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, p.r*4, 0, Math.PI*2);
+        pCtx.fillStyle = glow; pCtx.fill();
+        pCtx.beginPath(); pCtx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        pCtx.fillStyle = p.c; pCtx.fill();
+        // 连线（更密更亮）
+        pArr.forEach(q => {
+          const d = Math.hypot(p.x-q.x, p.y-q.y);
+          if (d < 160) { pCtx.beginPath(); pCtx.moveTo(p.x,p.y); pCtx.lineTo(q.x,q.y); pCtx.strokeStyle = `rgba(255,255,255,${.04*(1-d/160)})`; pCtx.lineWidth = .5; pCtx.stroke(); }
+        });
+        // 鼠标/手指强烈吸引
+        const md = Math.hypot(p.x-target.x, p.y-target.y);
+        if (md < 250) { const force = (1-md/250)*.008; p.vx += (target.x-p.x)*force; p.vy += (target.y-p.y)*force; p.vx *= .99; p.vy *= .99; }
+        // 限速
+        const speed = Math.hypot(p.vx, p.vy);
+        if (speed > 2) { p.vx *= 2/speed; p.vy *= 2/speed; }
+      });
+      requestAnimationFrame(pDraw);
+    }
+    pDraw();
+  </script>
+</body>
+</html>
