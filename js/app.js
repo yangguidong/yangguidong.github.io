@@ -62,7 +62,8 @@ const DEFAULT_DATA = {
   "categories": [
     "AI漫剧作品",
     "环境设计作品",
-    "其他"
+    "其他",
+    "AIGC设计"
   ],
   "works": [
     {
@@ -174,14 +175,14 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
-        "images/img98.jpg",
-        "images/img99.jpg",
-        "images/img100.jpg",
-        "images/img101.jpg",
-        "images/img102.jpg",
-        "images/img103.jpg",
-        "images/img104.jpg",
-        "images/img105.jpg"
+        "images/img0.jpg",
+        "images/img1.jpg",
+        "images/img2.jpg",
+        "images/img3.jpg",
+        "images/img4.jpg",
+        "images/img5.jpg",
+        "images/img6.jpg",
+        "images/img7.jpg"
       ],
       "videos": []
     },
@@ -190,18 +191,18 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
-        "images/img106.jpg",
-        "images/img107.jpg",
-        "images/img108.jpg",
-        "images/img109.jpg",
-        "images/img110.jpg",
-        "images/img111.jpg",
-        "images/img112.jpg",
-        "images/img113.jpg",
-        "images/img114.jpg",
-        "images/img115.jpg",
-        "images/img116.jpg",
-        "images/img117.jpg"
+        "images/img8.jpg",
+        "images/img9.jpg",
+        "images/img10.jpg",
+        "images/img11.jpg",
+        "images/img12.jpg",
+        "images/img13.jpg",
+        "images/img14.jpg",
+        "images/img15.jpg",
+        "images/img16.jpg",
+        "images/img17.jpg",
+        "images/img18.jpg",
+        "images/img19.jpg"
       ],
       "videos": []
     },
@@ -210,15 +211,49 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
-        "images/img118.jpg",
-        "images/img119.jpg",
-        "images/img120.jpg",
-        "images/img121.jpg",
-        "images/img122.jpg",
-        "images/img123.jpg",
-        "images/img124.jpg",
-        "images/img125.jpg",
-        "images/img126.jpg"
+        "images/img20.jpg",
+        "images/img21.jpg",
+        "images/img22.jpg",
+        "images/img23.jpg",
+        "images/img24.jpg",
+        "images/img25.jpg",
+        "images/img26.jpg",
+        "images/img27.jpg",
+        "images/img28.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "火车站",
+      "category": "环境设计作品",
+      "type": "image",
+      "images": [
+        "images/img29.jpg",
+        "images/img30.jpg",
+        "images/img31.jpg",
+        "images/img32.jpg",
+        "images/img33.jpg",
+        "images/img34.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "AI人物角色设计",
+      "category": "AIGC设计",
+      "type": "image",
+      "images": [
+        "images/img35.jpg",
+        "images/img36.jpg",
+        "images/img37.jpg",
+        "images/img38.jpg",
+        "images/img39.jpg",
+        "images/img40.jpg",
+        "images/img41.jpg",
+        "images/img42.jpg",
+        "images/img43.jpg",
+        "images/img44.jpg",
+        "images/img45.jpg",
+        "images/img46.jpg"
       ],
       "videos": []
     }
@@ -232,8 +267,21 @@ try {
 } catch(e) {}
 
 function saveData() {
-  try { localStorage.setItem("portfolio_data", JSON.stringify(DATA)); } catch(e) {}
-  try { fetch("/api/save", { method: "POST", body: JSON.stringify(DATA) }).catch(() => {}); } catch(e) {}
+  // 1. 尝试完整保存
+  try { localStorage.setItem("portfolio_data", JSON.stringify(DATA)); return true; } catch(e) {
+    // 2. 太大，只存文字（去图片视频数据）
+    try {
+      const light = JSON.parse(JSON.stringify(DATA));
+      light.works = light.works.map(w => ({...w, images: (w.images||[]).map(i => typeof i==='string'&&i.startsWith('img_')?i:''), videos: (w.videos||[]).map(v=>({key:v.key,name:v.name}))}));
+      localStorage.setItem("portfolio_data", JSON.stringify(light));
+    } catch(e2) { toast("存储空间不足！", "error"); }
+  }
+  // 3. 自动下载备份
+  try {
+    const blob = new Blob([JSON.stringify(DATA)], {type:"application/json"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = "pf_backup.json"; a.click();
+  } catch(e) {}
   return true;
 }
 
