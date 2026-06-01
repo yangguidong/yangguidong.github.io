@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Save</title>
+<style>body{background:#0a0a0f;color:#fff;font-family:sans-serif;padding:20px;text-align:center}
+button{padding:16px 40px;background:#d4a853;color:#000;border:none;border-radius:30px;font-size:1.2rem;cursor:pointer;margin:8px}
+#info{margin:20px;color:#aaa;font-size:.9rem}</style></head>
+<body>
+<h2>一键保存</h2>
+<div id="info"></div>
+<button onclick="go()">下载完整数据</button>
+<script>
+async function go(){
+  const info=document.getElementById('info');
+  info.textContent='读取中...';
+  const d=localStorage.getItem('portfolio_data');
+  if(!d){info.textContent='无数据!';return}
+  const data=JSON.parse(d);
+  info.textContent='找到 '+data.works.length+' 个作品，下载中...';
+  const blob=new Blob([d],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='data.json';a.click();
+  info.textContent='data.json 已下载！放到 d:/Python/portfolio/ 覆盖原文件';
+}
+</script>
+</body></html>
