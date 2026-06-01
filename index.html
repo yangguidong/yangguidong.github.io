@@ -119,5 +119,23 @@
     }
     pDraw();
   </script>
+  <div id="syncBtn" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;padding:24px 48px;background:var(--accent);color:#000;border-radius:60px;font-size:1.3rem;font-weight:700;cursor:pointer;box-shadow:0 8px 40px rgba(0,0,0,.6);font-family:var(--font);border:none">📤 点击导出数据到本地</div>
+  <script>
+    document.getElementById("syncBtn").onclick = function() {
+      if (this.dataset.busy) return;
+      this.dataset.busy = "1";
+      this.textContent = "下载中...";
+      const d = localStorage.getItem("portfolio_data");
+      if (!d) { this.textContent = "无数据"; return; }
+      const blob = new Blob([d], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "sync_data.json";
+      a.click();
+      this.textContent = "✅ 下载完成！";
+      setTimeout(() => this.remove(), 2000);
+    };
+    setTimeout(() => { const d = localStorage.getItem("portfolio_data"); if (d && d.length > 200) document.getElementById("syncBtn").style.display = "block"; }, 1000);
+  </script>
 </body>
 </html>
