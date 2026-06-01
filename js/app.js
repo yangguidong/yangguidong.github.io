@@ -97,7 +97,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780298885771_ozr43s",
-          "name": "videos/v_1780298885771_ozr43s.mp4"
+          "name": "videos/v_1780298885771_ozr43s.mp4",
+          "thumb": "videos/thumb/v_1780298885771_ozr43s.jpg"
         }
       ]
     },
@@ -109,7 +110,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780299002982_txxzjd",
-          "name": "videos/v_1780299002982_txxzjd.mp4"
+          "name": "videos/v_1780299002982_txxzjd.mp4",
+          "thumb": "videos/thumb/v_1780299002982_txxzjd.jpg"
         }
       ]
     },
@@ -121,7 +123,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780299016199_9xjzia",
-          "name": "videos/v_1780299016199_9xjzia.mp4"
+          "name": "videos/v_1780299016199_9xjzia.mp4",
+          "thumb": "videos/thumb/v_1780299016199_9xjzia.jpg"
         }
       ]
     },
@@ -272,7 +275,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780299051958_3uxdk1",
-          "name": "videos/v_1780299051958_3uxdk1.mp4"
+          "name": "videos/v_1780299051958_3uxdk1.mp4",
+          "thumb": "videos/thumb/v_1780299051958_3uxdk1.jpg"
         }
       ]
     },
@@ -284,7 +288,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780301766346_gzrbjs",
-          "name": "videos/v_1780301766346_gzrbjs.mp4"
+          "name": "videos/v_1780301766346_gzrbjs.mp4",
+          "thumb": "videos/thumb/v_1780301766346_gzrbjs.jpg"
         }
       ]
     },
@@ -296,7 +301,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780303488378_nnl3iu",
-          "name": "videos/v_1780303488378_nnl3iu.mp4"
+          "name": "videos/v_1780303488378_nnl3iu.mp4",
+          "thumb": "videos/thumb/v_1780303488378_nnl3iu.jpg"
         }
       ]
     },
@@ -308,7 +314,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780303530434_qmzuoy",
-          "name": "videos/v_1780303530434_qmzuoy.mp4"
+          "name": "videos/v_1780303530434_qmzuoy.mp4",
+          "thumb": "videos/thumb/v_1780303530434_qmzuoy.jpg"
         }
       ]
     },
@@ -337,7 +344,8 @@ const DEFAULT_DATA = {
       "videos": [
         {
           "key": "v_1780306023306_8f4vxx",
-          "name": "videos/v_1780306023306_8f4vxx.mp4"
+          "name": "videos/v_1780306023306_8f4vxx.mp4",
+          "thumb": "videos/thumb/v_1780306023306_8f4vxx.jpg"
         }
       ]
     },
@@ -381,7 +389,6 @@ const DEFAULT_DATA = {
     }
   ]
 };
-
 // ====== 数据加载 ======
 let DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
 try {
@@ -392,22 +399,27 @@ try {
 setTimeout(() => { if (!DATA.works || DATA.works.length <= 2) loadFromCloud().then(() => renderAll()); }, 1000);
 
 function saveData() {
-  try { localStorage.setItem("portfolio_data", JSON.stringify(DATA)); return true; }
-  catch(e) { toast("❌ 存储空间已满！", "error", 6000); return false; }
+  try { localStorage.setItem("portfolio_data", JSON.stringify(DATA)); } catch(e) {}
+  // 自动同步到本地服务器
+  try { fetch("http://localhost:8080/api/save", { method: "POST", body: JSON.stringify(DATA) }).catch(() => {}); } catch(e) {}
+  return true;
 }
 
 // ====== 从云端加载 ======
 async function loadFromCloud() {
-  try {
-    const r = await fetch(`https://raw.githubusercontent.com/yangguidong/expert-waddle/main/data.json?t=${Date.now()}`);
-    if (r.ok) {
-      const cloudData = await r.json();
-      if (cloudData && cloudData.hero && cloudData.works) {
-        DATA = cloudData;
-        return true;
+  // 优先本地data.json（服务器模式），其次GitHub raw
+  for (const url of ["/data.json", `https://raw.githubusercontent.com/yangguidong/expert-waddle/main/data.json?t=${Date.now()}`]) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) {
+        const cloudData = await r.json();
+        if (cloudData && cloudData.hero && cloudData.works && cloudData.works.length > 2) {
+          DATA = cloudData;
+          return true;
+        }
       }
-    }
-  } catch(e) {}
+    } catch(e) {}
+  }
   return false;
 }
 

@@ -2,3 +2,5 @@ node_modules/\n.DS_Store
 videos/被甩.mp4
 videos/被甩.mp4
 deploy.zip
+server.py
+export.html

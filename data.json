@@ -61,7 +61,8 @@
       "videos": [
         {
           "key": "v_1780298885771_ozr43s",
-          "name": "videos/v_1780298885771_ozr43s.mp4"
+          "name": "videos/v_1780298885771_ozr43s.mp4",
+          "thumb": "videos/thumb/v_1780298885771_ozr43s.jpg"
         }
       ]
     },
@@ -73,7 +74,8 @@
       "videos": [
         {
           "key": "v_1780299002982_txxzjd",
-          "name": "videos/v_1780299002982_txxzjd.mp4"
+          "name": "videos/v_1780299002982_txxzjd.mp4",
+          "thumb": "videos/thumb/v_1780299002982_txxzjd.jpg"
         }
       ]
     },
@@ -85,7 +87,8 @@
       "videos": [
         {
           "key": "v_1780299016199_9xjzia",
-          "name": "videos/v_1780299016199_9xjzia.mp4"
+          "name": "videos/v_1780299016199_9xjzia.mp4",
+          "thumb": "videos/thumb/v_1780299016199_9xjzia.jpg"
         }
       ]
     },
@@ -236,7 +239,8 @@
       "videos": [
         {
           "key": "v_1780299051958_3uxdk1",
-          "name": "videos/v_1780299051958_3uxdk1.mp4"
+          "name": "videos/v_1780299051958_3uxdk1.mp4",
+          "thumb": "videos/thumb/v_1780299051958_3uxdk1.jpg"
         }
       ]
     },
@@ -248,7 +252,8 @@
       "videos": [
         {
           "key": "v_1780301766346_gzrbjs",
-          "name": "videos/v_1780301766346_gzrbjs.mp4"
+          "name": "videos/v_1780301766346_gzrbjs.mp4",
+          "thumb": "videos/thumb/v_1780301766346_gzrbjs.jpg"
         }
       ]
     },
@@ -260,7 +265,8 @@
       "videos": [
         {
           "key": "v_1780303488378_nnl3iu",
-          "name": "videos/v_1780303488378_nnl3iu.mp4"
+          "name": "videos/v_1780303488378_nnl3iu.mp4",
+          "thumb": "videos/thumb/v_1780303488378_nnl3iu.jpg"
         }
       ]
     },
@@ -272,7 +278,8 @@
       "videos": [
         {
           "key": "v_1780303530434_qmzuoy",
-          "name": "videos/v_1780303530434_qmzuoy.mp4"
+          "name": "videos/v_1780303530434_qmzuoy.mp4",
+          "thumb": "videos/thumb/v_1780303530434_qmzuoy.jpg"
         }
       ]
     },
@@ -301,7 +308,8 @@
       "videos": [
         {
           "key": "v_1780306023306_8f4vxx",
-          "name": "videos/v_1780306023306_8f4vxx.mp4"
+          "name": "videos/v_1780306023306_8f4vxx.mp4",
+          "thumb": "videos/thumb/v_1780306023306_8f4vxx.jpg"
         }
       ]
     },
