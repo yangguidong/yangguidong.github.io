@@ -61,7 +61,8 @@ const DEFAULT_DATA = {
   },
   "categories": [
     "AI漫剧作品",
-    "其他"
+    "其他",
+    "环境设计作品"
   ],
   "works": [
     {
