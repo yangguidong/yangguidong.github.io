@@ -38,18 +38,18 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
+        "images/img110.jpg",
+        "images/img112.jpg",
+        "images/img114.jpg",
+        "images/img116.jpg",
+        "images/img118.jpg",
+        "images/img120.jpg",
+        "images/img122.jpg",
         "images/img124.jpg",
         "images/img126.jpg",
         "images/img128.jpg",
         "images/img130.jpg",
-        "images/img132.jpg",
-        "images/img134.jpg",
-        "images/img136.jpg",
-        "images/img138.jpg",
-        "images/img140.jpg",
-        "images/img142.jpg",
-        "images/img144.jpg",
-        "images/img146.jpg"
+        "images/img132.jpg"
       ],
       "videos": []
     },
@@ -144,11 +144,11 @@ const DEFAULT_DATA = {
       "category": "AIGC设计作品",
       "type": "image",
       "images": [
-        "images/img148.jpg",
-        "images/img150.jpg",
-        "images/img152.jpg",
-        "images/img154.jpg",
-        "images/img156.jpg"
+        "images/img134.jpg",
+        "images/img136.jpg",
+        "images/img138.jpg",
+        "images/img140.jpg",
+        "images/img142.jpg"
       ],
       "videos": []
     },
@@ -157,10 +157,10 @@ const DEFAULT_DATA = {
       "category": "AIGC设计作品",
       "type": "image",
       "images": [
-        "images/img158.jpg",
-        "images/img160.jpg",
-        "images/img162.jpg",
-        "images/img164.jpg"
+        "images/img144.jpg",
+        "images/img146.jpg",
+        "images/img148.jpg",
+        "images/img150.jpg"
       ],
       "videos": []
     },
@@ -169,14 +169,14 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
-        "images/img166.jpg",
-        "images/img168.jpg",
-        "images/img170.jpg",
-        "images/img172.jpg",
-        "images/img174.jpg",
-        "images/img176.jpg",
-        "images/img178.jpg",
-        "images/img180.jpg"
+        "images/img152.jpg",
+        "images/img154.jpg",
+        "images/img156.jpg",
+        "images/img158.jpg",
+        "images/img160.jpg",
+        "images/img162.jpg",
+        "images/img164.jpg",
+        "images/img166.jpg"
       ],
       "videos": []
     },
@@ -185,15 +185,15 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
+        "images/img168.jpg",
+        "images/img170.jpg",
+        "images/img172.jpg",
+        "images/img174.jpg",
+        "images/img176.jpg",
+        "images/img178.jpg",
+        "images/img180.jpg",
         "images/img182.jpg",
-        "images/img184.jpg",
-        "images/img186.jpg",
-        "images/img188.jpg",
-        "images/img190.jpg",
-        "images/img192.jpg",
-        "images/img194.jpg",
-        "images/img196.jpg",
-        "images/img198.jpg"
+        "images/img184.jpg"
       ],
       "videos": []
     },
@@ -202,12 +202,12 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
-        "images/img200.jpg",
-        "images/img202.jpg",
-        "images/img204.jpg",
-        "images/img206.jpg",
-        "images/img208.jpg",
-        "images/img210.jpg"
+        "images/img186.jpg",
+        "images/img188.jpg",
+        "images/img190.jpg",
+        "images/img192.jpg",
+        "images/img194.jpg",
+        "images/img196.jpg"
       ],
       "videos": []
     },
@@ -216,15 +216,15 @@ const DEFAULT_DATA = {
       "category": "平面设计作品",
       "type": "image",
       "images": [
+        "images/img198.jpg",
+        "images/img200.jpg",
+        "images/img202.jpg",
+        "images/img204.jpg",
+        "images/img206.jpg",
+        "images/img208.jpg",
+        "images/img210.jpg",
         "images/img212.jpg",
-        "images/img214.jpg",
-        "images/img216.jpg",
-        "images/img218.jpg",
-        "images/img220.jpg",
-        "images/img222.jpg",
-        "images/img224.jpg",
-        "images/img226.jpg",
-        "images/img228.jpg"
+        "images/img214.jpg"
       ],
       "videos": []
     },
@@ -281,15 +281,15 @@ const DEFAULT_DATA = {
       "category": "平面设计作品",
       "type": "image",
       "images": [
+        "images/img216.jpg",
+        "images/img218.jpg",
+        "images/img220.jpg",
+        "images/img222.jpg",
+        "images/img224.jpg",
+        "images/img226.jpg",
+        "images/img228.jpg",
         "images/img230.jpg",
-        "images/img232.jpg",
-        "images/img234.jpg",
-        "images/img236.jpg",
-        "images/img238.jpg",
-        "images/img240.jpg",
-        "images/img242.jpg",
-        "images/img244.jpg",
-        "images/img246.jpg"
+        "images/img232.jpg"
       ],
       "videos": []
     },
@@ -310,10 +310,10 @@ const DEFAULT_DATA = {
       "category": "AIGC设计作品",
       "type": "image",
       "images": [
-        "images/img248.jpg",
-        "images/img250.jpg",
-        "images/img252.jpg",
-        "images/img254.jpg"
+        "images/img234.jpg",
+        "images/img236.jpg",
+        "images/img238.jpg",
+        "images/img240.jpg"
       ],
       "videos": []
     },
@@ -322,12 +322,12 @@ const DEFAULT_DATA = {
       "category": "AIGC设计作品",
       "type": "image",
       "images": [
-        "images/img256.jpg",
-        "images/img258.jpg",
-        "images/img260.jpg",
-        "images/img262.jpg",
-        "images/img264.jpg",
-        "images/img266.jpg"
+        "images/img242.jpg",
+        "images/img244.jpg",
+        "images/img246.jpg",
+        "images/img248.jpg",
+        "images/img250.jpg",
+        "images/img252.jpg"
       ],
       "videos": []
     },
@@ -336,10 +336,10 @@ const DEFAULT_DATA = {
       "category": "AIGC设计作品",
       "type": "image",
       "images": [
-        "images/img268.jpg",
-        "images/img270.jpg",
-        "images/img272.jpg",
-        "images/img274.jpg"
+        "images/img254.jpg",
+        "images/img256.jpg",
+        "images/img258.jpg",
+        "images/img260.jpg"
       ],
       "videos": []
     }
