@@ -387,13 +387,9 @@ try {
   const saved = localStorage.getItem("portfolio_data");
   if (saved) { const d = JSON.parse(saved); if (d && d.hero && d.works) { DATA = d; } }
 } catch(e) {}
-// 后台从云端加载（仅当本地无数据时更新）
-setTimeout(() => { if (!DATA.works || DATA.works.length <= 2) loadFromCloud().then(() => renderAll()); }, 1000);
 
 function saveData() {
   try { localStorage.setItem("portfolio_data", JSON.stringify(DATA)); } catch(e) {}
-  // 自动同步到本地服务器
-  try { fetch("http://localhost:8080/api/save", { method: "POST", body: JSON.stringify(DATA) }).catch(() => {}); } catch(e) {}
   return true;
 }
 
