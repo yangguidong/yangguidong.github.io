@@ -174,14 +174,14 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
-        "images/img20.jpg",
-        "images/img21.jpg",
-        "images/img22.jpg",
-        "images/img23.jpg",
-        "images/img24.jpg",
-        "images/img25.jpg",
-        "images/img26.jpg",
-        "images/img27.jpg"
+        "images/img40.jpg",
+        "images/img41.jpg",
+        "images/img42.jpg",
+        "images/img43.jpg",
+        "images/img44.jpg",
+        "images/img45.jpg",
+        "images/img46.jpg",
+        "images/img47.jpg"
       ],
       "videos": []
     },
@@ -190,18 +190,35 @@ const DEFAULT_DATA = {
       "category": "环境设计作品",
       "type": "image",
       "images": [
-        "images/img28.jpg",
-        "images/img29.jpg",
-        "images/img30.jpg",
-        "images/img31.jpg",
-        "images/img32.jpg",
-        "images/img33.jpg",
-        "images/img34.jpg",
-        "images/img35.jpg",
-        "images/img36.jpg",
-        "images/img37.jpg",
-        "images/img38.jpg",
-        "images/img39.jpg"
+        "images/img48.jpg",
+        "images/img49.jpg",
+        "images/img50.jpg",
+        "images/img51.jpg",
+        "images/img52.jpg",
+        "images/img53.jpg",
+        "images/img54.jpg",
+        "images/img55.jpg",
+        "images/img56.jpg",
+        "images/img57.jpg",
+        "images/img58.jpg",
+        "images/img59.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "未命名",
+      "category": "环境设计作品",
+      "type": "image",
+      "images": [
+        "images/img60.jpg",
+        "images/img61.jpg",
+        "images/img62.jpg",
+        "images/img63.jpg",
+        "images/img64.jpg",
+        "images/img65.jpg",
+        "images/img66.jpg",
+        "images/img67.jpg",
+        "images/img68.jpg"
       ],
       "videos": []
     }
