@@ -143,7 +143,7 @@ img { max-width: 100%; display: block; }
 .about-avatar-wrap::after { content: ''; position: absolute; inset: -6px; border-radius: 50%; background: conic-gradient(var(--accent), var(--accent2), var(--accent3), var(--accent)); z-index: -1; opacity: .3; filter: blur(16px); }
 .about-text h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -.02em; }
 .about-text .tagline { font-size: 1rem; color: var(--accent); font-weight: 500; margin-bottom: 16px; }
-.about-text .bio { color: var(--text2); line-height: 1.8; font-size: .95rem; }
+.about-text .bio { color: var(--text2); line-height: 1.8; font-size: .95rem; white-space: pre-wrap; }
 .about-philosophy { width: 100%; margin-top: 24px; }
 .info-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; text-align: left; }
 @media (max-width: 640px) { .info-cards { grid-template-columns: 1fr; } }
@@ -187,7 +187,7 @@ body.editing { padding-bottom: 76px; }
 .edit-toolbar .et-danger { color: #f87171; border-color: rgba(248,113,113,.3); }
 .edit-toolbar .et-divider { width: 1px; height: 16px; background: var(--border); }
 
-body.editing [contenteditable="true"] { outline: 1.5px dashed var(--accent); outline-offset: 4px; border-radius: 4px; padding: 3px 6px; cursor: text; transition: .2s; }
+body.editing [contenteditable="true"] { outline: 1.5px dashed var(--accent); outline-offset: 4px; border-radius: 4px; padding: 3px 6px; cursor: text; transition: .2s; white-space: pre-wrap; word-wrap: break-word; }
 body.editing [contenteditable="true"]:focus { outline-style: solid; background: rgba(212,168,83,.06); }
 
 body.editing .work-card-actions { display: flex !important; }
