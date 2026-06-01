@@ -318,14 +318,38 @@ const DEFAULT_DATA = {
 
 // ====== 数据加载 ======
 let DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
-try {
-  const saved = localStorage.getItem("portfolio_data");
-  if (saved) { const d = JSON.parse(saved); if (d && d.hero && d.works) { d.about = d.about || {}; d.about.info = d.about.info || {}; for (const k of ["年龄","所在地","电话","邮箱","学历","专长","工作经历","科研经历","获奖"]) { if (!d.about.info[k]) d.about.info[k] = ""; } DATA = d; } }
-} catch(e) {}
+
+(async function initData() {
+  // 1. 优先从云端加载
+  const cloudOk = await loadFromCloud();
+  // 2. 云端没有则用本地
+  if (!cloudOk) {
+    try {
+      const saved = localStorage.getItem("portfolio_data");
+      if (saved) { const d = JSON.parse(saved); if (d && d.hero && d.works) { d.about = d.about || {}; d.about.info = d.about.info || {}; DATA = d; } }
+    } catch(e) {}
+  }
+  renderAll();
+})();
 
 function saveData() {
   try { localStorage.setItem("portfolio_data", JSON.stringify(DATA)); return true; }
-  catch(e) { toast("❌ 存储空间已满！请删除部分作品或压缩图片", "error", 6000); return false; }
+  catch(e) { toast("❌ 存储空间已满！", "error", 6000); return false; }
+}
+
+// ====== 从云端加载 ======
+async function loadFromCloud() {
+  try {
+    const r = await fetch(`https://raw.githubusercontent.com/yangguidong/expert-waddle/main/data.json?t=${Date.now()}`);
+    if (r.ok) {
+      const cloudData = await r.json();
+      if (cloudData && cloudData.hero && cloudData.works) {
+        DATA = cloudData;
+        return true;
+      }
+    }
+  } catch(e) {}
+  return false;
 }
 
 // 直接存原始文件到IDB
@@ -362,7 +386,7 @@ function captureVideoThumb(file) {
 }
 
 // ====== 初始化 ======
-document.addEventListener("DOMContentLoaded", () => { initTheme(); initNav(); initEditUI(); renderAll(); });
+document.addEventListener("DOMContentLoaded", () => { initTheme(); initNav(); initEditUI(); });
 function renderAll() { renderHero(); renderWorks(); renderAbout(); initScrollReveal(); }
 
 // ------ 主题 ------

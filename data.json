@@ -1,0 +1,215 @@
+{
+  "siteName": "PORTFOLIO",
+  "hero": {
+    "greeting": "Hello, 我是",
+    "name": "杨贵东",
+    "tagline": "视觉设计师 / AIGC设计师",
+    "bgGradient": "linear-gradient(135deg, #0f172a, #334155)"
+  },
+  "about": {
+    "avatar": "img_1780227557724_l4k90z",
+    "name": "杨贵东",
+    "tagline": "",
+    "bio": "",
+    "philosophy": "设计理念",
+    "philosophyText": "设计不仅仅是美学的表达，更是解决问题的方法。我相信好的设计应该简洁、有力，能够触动人心。",
+    "info": {
+      "年龄": "24",
+      "所在地": "杭州",
+      "电话": "15559716426",
+      "邮箱": "947480662@qq.com",
+      "学历": "本科",
+      "专长": "AIGC",
+      "工作经历": "2024-2025望野设计工作室平面设计+AIGC视频工程师",
+      "科研经历": "",
+      "获奖": ""
+    }
+  },
+  "categories": [
+    "环境设计作品",
+    "平面设计作品",
+    "AIGC设计作品",
+    "AI漫剧作品",
+    "其他"
+  ],
+  "works": [
+    {
+      "title": "城海之上",
+      "category": "环境设计作品",
+      "type": "image",
+      "images": [
+        "images/img83.jpg",
+        "images/img85.jpg",
+        "images/img87.jpg",
+        "images/img89.jpg",
+        "images/img91.jpg",
+        "images/img93.jpg",
+        "images/img95.jpg",
+        "images/img97.jpg",
+        "images/img99.jpg",
+        "images/img101.jpg",
+        "images/img103.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "宿晓",
+      "category": "AI漫剧作品",
+      "type": "video",
+      "images": [],
+      "videos": [
+        {
+          "key": "",
+          "name": "videos/33a4ec14cc9269cb1b9a9277aa02b14e.mp4"
+        }
+      ]
+    },
+    {
+      "title": "我和道士 有个约定",
+      "category": "AI漫剧作品",
+      "type": "video",
+      "images": [],
+      "videos": [
+        {
+          "key": "",
+          "name": "videos/a0b8a3b7db354e90c9539e39524b8994.mp4"
+        }
+      ]
+    },
+    {
+      "title": "灵牌镇世",
+      "category": "AI漫剧作品",
+      "type": "video",
+      "images": [],
+      "videos": [
+        {
+          "key": "",
+          "name": "videos/ef8a7409056b162da9a9dd4b5d5057ed.mp4"
+        }
+      ]
+    },
+    {
+      "title": "被甩就变强",
+      "category": "AI漫剧作品",
+      "type": "video",
+      "images": [],
+      "videos": [
+        {
+          "key": "",
+          "name": "videos/fae9a96c39d829829e34fbbd059112fd.mp4"
+        }
+      ]
+    },
+    {
+      "title": "茉云涧",
+      "category": "平面设计作品",
+      "type": "image",
+      "images": [
+        "images/img105.jpg",
+        "images/img107.jpg",
+        "images/img109.jpg",
+        "images/img111.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "天妇罗",
+      "category": "平面设计作品",
+      "type": "image",
+      "images": [
+        "images/img113.jpg",
+        "images/img115.jpg",
+        "images/img117.jpg",
+        "images/img119.jpg",
+        "images/img121.jpg",
+        "images/img123.jpg",
+        "images/img125.jpg",
+        "images/img127.jpg",
+        "images/img129.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "AI角色设计",
+      "category": "AIGC设计作品",
+      "type": "image",
+      "images": [
+        "images/img131.jpg",
+        "images/img133.jpg",
+        "images/img135.jpg",
+        "images/img137.jpg",
+        "images/img139.jpg",
+        "images/img141.jpg",
+        "images/img143.jpg",
+        "images/img145.jpg",
+        "images/img147.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "茶祖AI品牌",
+      "category": "AIGC设计作品",
+      "type": "image",
+      "images": [
+        "images/img149.jpg",
+        "images/img151.jpg",
+        "images/img153.jpg",
+        "images/img155.jpg",
+        "images/img157.jpg",
+        "images/img159.jpg",
+        "images/img161.jpg",
+        "images/img163.jpg"
+      ],
+      "videos": []
+    },
+    {
+      "title": "鲸智生活",
+      "category": "AIGC设计作品",
+      "type": "image",
+      "images": [],
+      "videos": []
+    },
+    {
+      "title": "鳄鱼阿力",
+      "category": "AIGC设计作品",
+      "type": "image",
+      "images": [],
+      "videos": []
+    },
+    {
+      "title": "古墟新生",
+      "category": "环境设计作品",
+      "type": "image",
+      "images": [],
+      "videos": []
+    },
+    {
+      "title": "冰雪之乡",
+      "category": "环境设计作品",
+      "type": "image",
+      "images": [],
+      "videos": []
+    },
+    {
+      "title": "火车站",
+      "category": "环境设计作品",
+      "type": "image",
+      "images": [],
+      "videos": []
+    },
+    {
+      "title": "齐烎烎",
+      "category": "平面设计作品",
+      "type": "image",
+      "images": [],
+      "videos": []
+    },
+    {
+      "title": "红尘",
+      "category": "AI漫剧作品",
+      "type": "video",
+      "images": [],
+      "videos": []
+    }
+  ]
+}
